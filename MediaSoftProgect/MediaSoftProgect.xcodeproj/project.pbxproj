@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E2712FA28701EC70025D53C /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2712F928701EC70025D53C /* TestModel.swift */; };
+		4E2712FF28718D2A0025D53C /* FavoritPosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2712FE28718D2A0025D53C /* FavoritPosterCollectionViewCell.swift */; };
 		4E5C89D3286F2A4600E639EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C89D2286F2A4600E639EC /* AppDelegate.swift */; };
 		4E5C89D5286F2A4600E639EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C89D4286F2A4600E639EC /* SceneDelegate.swift */; };
 		4E5C89DC286F2A4800E639EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C89DB286F2A4800E639EC /* Assets.xcassets */; };
@@ -36,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E2712F928701EC70025D53C /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		4E2712FE28718D2A0025D53C /* FavoritPosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritPosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E5C89CF286F2A4600E639EC /* MediaSoftProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaSoftProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5C89D2286F2A4600E639EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E5C89D4286F2A4600E639EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E2712FD28718CF40025D53C /* FavoritPosterCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4E2712FE28718D2A0025D53C /* FavoritPosterCollectionViewCell.swift */,
+			);
+			path = FavoritPosterCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		4E5C89C6286F2A4600E639EC = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +168,7 @@
 			children = (
 				4E5C89F7286F2C8200E639EC /* FavoritePosterViewController.swift */,
 				4E5C8A03286F2D2F00E639EC /* FavoritPosterViewModel.swift */,
+				4E2712FD28718CF40025D53C /* FavoritPosterCollectionViewCell */,
 			);
 			path = FavoritPoster;
 			sourceTree = "<group>";
@@ -188,7 +197,6 @@
 			children = (
 				4E5C89F3286F2C2900E639EC /* AccessTokenModel.swift */,
 				4E5C89F5286F2C4500E639EC /* GfycatModel.swift */,
-				4E2712F928701EC70025D53C /* TestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,7 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5C8A1E286F450900E639EC /* PosterTableViewCell.swift in Sources */,
-				4E2712FA28701EC70025D53C /* TestModel.swift in Sources */,
+				4E2712FF28718D2A0025D53C /* FavoritPosterCollectionViewCell.swift in Sources */,
 				4E5C89D3286F2A4600E639EC /* AppDelegate.swift in Sources */,
 				4E5C8A19286F3A0800E639EC /* RealmGfycatModel.swift in Sources */,
 				4E5C89FA286F2C9700E639EC /* PosterViewController.swift in Sources */,

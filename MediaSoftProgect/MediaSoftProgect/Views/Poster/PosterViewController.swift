@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol AlertShowProtocol {
+    func alertShow(model: RealmGfycatModel)
+}
+
 class PosterViewController: UIViewController {
     
     var viewModel: PosterViewModelProtocol!
+    var delegate: AlertShowProtocol?
     
     var posterDataSource: UITableViewDiffableDataSource<Section, Gfycats>!
     
@@ -17,6 +22,7 @@ class PosterViewController: UIViewController {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.register(PosterTableViewCell.self, forCellReuseIdentifier: PosterTableViewCell.CellId)
+        tableView.delegate = self
         return tableView
     }()
     
@@ -75,10 +81,11 @@ class PosterViewController: UIViewController {
     
     private func configureCell<T: PosterTableViewCellProtocol>(_ CellId: T.Type, with resultsRequest: Gfycats, for indexPath: IndexPath) -> T {
         
-        guard let cell = posterTableView.dequeueReusableCell(withIdentifier: CellId.CellId, for: indexPath) as? T else {fatalError()}
+        guard var cell = posterTableView.dequeueReusableCell(withIdentifier: CellId.CellId, for: indexPath) as? T else {fatalError()}
         
         cell.configCell(model: resultsRequest, cellIndex: indexPath.row)
         
+        cell.alettDelegate = self
         
         return cell
     }
@@ -125,7 +132,7 @@ extension PosterViewController: UISearchBarDelegate {
 }
 
 extension PosterViewController: AlertShowProtocol {
-    func alertShow(_: PosterTableViewCell) {
+    func alertShow(model: RealmGfycatModel) {
         let alert = UIAlertController(title: """
                                      Добавить в "Любимые фото"
                                      """,
@@ -133,8 +140,8 @@ extension PosterViewController: AlertShowProtocol {
         let cancel = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
         let add = UIAlertAction(title: "Добавить", style: .default) { [weak self] _ in
             
-            self?.viewModel?.saveDataInRealmBD()
-
+            self?.viewModel?.saveDataInRealmBD(model: model)
+            
         }
         
         alert.addAction(cancel)
@@ -143,5 +150,11 @@ extension PosterViewController: AlertShowProtocol {
         alert.modalPresentationStyle = .automatic
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension PosterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }

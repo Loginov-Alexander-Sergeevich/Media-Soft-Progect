@@ -14,7 +14,10 @@ final class RealmManadger {
     
     let realm = try! Realm()
     var tokenDataBase: Results<RealmAccessTokenModel>!
-    let itemPhotoDataBase = RealmAccessTokenModel()
+    var gfycatDataBase: Results<RealmGfycatModel>!
+
+    
+    
     
     func accessToken() -> [RealmAccessTokenModel] {
         tokenDataBase = realm.objects(RealmAccessTokenModel.self)
@@ -33,17 +36,49 @@ final class RealmManadger {
         } catch {
             print(error.localizedDescription)
         }
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+    
+    func itemsGfycat() -> [RealmGfycatModel] {
+        
+        let gfycatDataBase = realm.objects(RealmGfycatModel.self)
+        //let items = gfycatDataBase
+        return Array(gfycatDataBase)
+    }
+    
+    func add(moedel: RealmGfycatModel) {
+        
+        
+        //let item = RealmGfycatModel(posterUrl: posterUrl, title: title)
+        
+        
+        do {
+            try self.realm.write{
+                self.realm.add(moedel)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
-//    func deleteItem(at id: ObjectId) {
-//        
-//        photoDataBase = realm.objects(PhotoInfoDB.self)
-//        
-//        if let objct = photoDataBase.filter("_id = %@", id as Any).first {
-//            try! realm.write {
-//                realm.delete(objct)
-//            }
-//        }
-//    }
+
+    
+    func deletet(at id: ObjectId) {
+
+        let gfycatDataBase = realm.objects(RealmGfycatModel.self)
+        
+        if let objct = gfycatDataBase.filter("_id = %@", id as Any).first {
+            try! realm.write {
+                realm.delete(objct)
+            }
+        }
+    }
+    
+    
+    func deletBD() {
+        try! realm.write({
+            realm.deleteAll()
+        })
+    }
 }

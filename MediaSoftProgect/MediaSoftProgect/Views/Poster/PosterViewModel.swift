@@ -19,10 +19,11 @@ protocol PosterViewModelProtocol {
     
     func searchPoster(name: String, completion: @escaping() -> ())
     func requestPoster(completion: @escaping () -> ())
-    func saveDataInRealmBD()
+    func saveDataInRealmBD(model: RealmGfycatModel)
 }
 
 final class PosterViewModel: PosterViewModelProtocol {
+
     let provider = MoyaProvider<GfycatAPI>()
     var timer: Timer?
     var title: String = "Posters"
@@ -73,7 +74,8 @@ final class PosterViewModel: PosterViewModelProtocol {
         }
     }
     
-    func saveDataInRealmBD() {
+    func saveDataInRealmBD(model: RealmGfycatModel) {
         
+        RealmManadger.shared.add(moedel: model)
     }
 }

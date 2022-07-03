@@ -7,65 +7,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C5BCEE45-BF69-461D-8615-63140E28D4BF"
+            uuid = "CE70D626-EC77-4E9F-B76D-E884C1F201E4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MediaSoftProgect/Views/Poster/PosterViewController.swift"
+            filePath = "MediaSoftProgect/Views/FavoritPoster/FavoritePosterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "alertShow(_:)"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "alefrtShow(id:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4F7468AF-C5AD-4320-829A-32E12A0C4897"
+            uuid = "B47BF792-709E-4BE8-BB7E-70DFF05BEA90"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MediaSoftProgect/Views/Poster/PosterViewController.swift"
+            filePath = "MediaSoftProgect/RalmDataBase/RealManadger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "alertShow(_:)"
-            landmarkType = "9">
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "deletet(at:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FF3FB48D-EB8E-4E55-A2EF-736A4A464478"
+            uuid = "E716AA04-F7CF-4B8B-8D8B-E5AE34760B8D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MediaSoftProgect/Views/Poster/PosterViewController.swift"
+            filePath = "MediaSoftProgect/RalmDataBase/RealManadger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "alertShow(_:)"
-            landmarkType = "9">
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "deletet(at:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF464D52-33AE-4832-BF4F-785F0C4C18FB"
+            uuid = "99A13800-BAEF-4280-8B94-5357E08EECA4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MediaSoftProgect/Views/Poster/PosterViewController.swift"
+            filePath = "MediaSoftProgect/RalmDataBase/RealManadger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "alertShow(_:)"
-            landmarkType = "9">
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "deletet(at:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C05A532-CEBC-40C5-A162-74EE35625D21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MediaSoftProgect/Views/FavoritPoster/FavoritPosterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "deletDataPhoto(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB2F2468-6857-4080-A58C-CA7BCB0B748D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MediaSoftProgect/RalmDataBase/RealManadger.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "deletet(at:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

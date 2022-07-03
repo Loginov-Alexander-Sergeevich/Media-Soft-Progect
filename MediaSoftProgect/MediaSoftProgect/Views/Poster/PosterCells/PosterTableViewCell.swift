@@ -9,20 +9,21 @@ import Foundation
 import UIKit
 import SDWebImage
 
-protocol AlertShowProtocol {
-    func alertShow(_: PosterTableViewCell)
-}
+
 
 protocol PosterTableViewCellProtocol {
     static var CellId: String {get set}
+    var model: RealmGfycatModel? {get set}
+    var alettDelegate: AlertShowProtocol? {get set}
     func configCell(model: Gfycats, cellIndex: Int)
 }
 
 final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
-
-    var delegate: AlertShowProtocol?
+    var alettDelegate: AlertShowProtocol?
     
     static var CellId: String = "PosterTableViewCell"
+    
+    var model: RealmGfycatModel?
     
     let posterImage: UIImageView = {
         let image = UIImageView()
@@ -37,7 +38,7 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
     
     let addFavoriteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = .systemGray
         button.addTarget(self, action: #selector(addFavoriteButtonAction), for: .touchUpInside)
         return button
@@ -52,7 +53,6 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setCell()
         cofigurationConstraints()
         
@@ -66,6 +66,12 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
         selectionStyle = .none
         contentView.addSubviews([horisontalStackView])
         horisontalStackView.addArrangedSubviews([posterImage, titlePosterLabel, addFavoriteButton])
+    }
+    
+    override func prepareForReuse() {
+        posterImage.image = nil
+        titlePosterLabel.text = nil
+        addFavoriteButton.tintColor = .systemGray
     }
     
     func cofigurationConstraints() {
@@ -85,6 +91,8 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
         
         addFavoriteButton.snp.makeConstraints { make in
             make.size.equalTo(buttonSize)
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
     
@@ -99,13 +107,21 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
         
         addFavoriteButton.tag = cellIndex
         
-        accessoryView = addFavoriteButton
+        //accessoryView = addFavoriteButton
         
         self.titlePosterLabel.text = model.title
+        
+        
+        
+        self.model = .init(posterUrl: model.mobilePosterUrl!, title: model.title ?? "")
     }
     
-    @objc private func addFavoriteButtonAction() {
+    @objc private func addFavoriteButtonAction(sender: UIButton) {
         print("Taped")
-        self.delegate?.alertShow(self)
+        guard let model = model else {
+            return
+        }
+
+        self.alettDelegate?.alertShow(model: model)
     }
 }
