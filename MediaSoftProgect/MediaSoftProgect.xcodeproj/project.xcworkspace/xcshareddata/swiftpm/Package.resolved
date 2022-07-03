@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "354dda32d89fc8cd4f5c46487f64957d355f53d8",
+          "version": "5.6.1"
+        }
+      },
+      {
+        "package": "Moya",
+        "repositoryURL": "https://github.com/Moya/Moya.git",
+        "state": {
+          "branch": "master",
+          "revision": "42b4da6cf00ce35874f2aebebefb9564c2fdb799",
+          "version": null
+        }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "c43bae3dac73fdd3cb906bd5a1914686ca71ed3c",
+          "version": "6.7.0"
+        }
+      },
+      {
+        "package": "RealmDatabase",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "55a48c287b5e3a8ca129c257ec7e3b92bcb2a05f",
+          "version": "12.3.0"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "f94db8b93ebbefd908301e48f4e6fe7f9a51ff7c",
+          "version": null
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
+          "version": "6.5.0"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": "master",
+          "revision": "c4b8660bb3ef543fe4bdcaac0db956b32dc5583f",
+          "version": null
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": "develop",
+          "revision": "07c5d1f6044701d97e94dc11157259e8811977be",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
