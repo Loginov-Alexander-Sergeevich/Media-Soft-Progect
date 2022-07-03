@@ -2,7 +2,7 @@
 //  FavoritPosterViewModel.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ protocol FavoritPosterViewModelProtocol {
 
 final class FavoritPosterViewModel: FavoritPosterViewModelProtocol {
     
-    var title: String = "Любимые постеры"
+    var title: String = "Favourite posters"
     
     var timer: Timer?
     

@@ -2,10 +2,12 @@
 //  SceneDelegate.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import UIKit
+import FirebaseCore
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,6 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let sceneWindow = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: sceneWindow)
+        FirebaseApp.configure()
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user == nil {
+                self.showLogin()
+            } else {
+                self.showTabBar()
+            }
+        }
+    }
+
+    func showLogin() {
+        
         self.window?.makeKeyAndVisible()
         
         let loginViewController = LoginViewController()
@@ -24,7 +38,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = navigationController
         self.window?.backgroundColor = .white
     }
-
-
+    
+    func showTabBar() {
+        self.window?.makeKeyAndVisible()
+        
+        let tabBarViewController = TabBarViewController()
+        let navigationController = UINavigationController(rootViewController: tabBarViewController)
+        
+        self.window?.rootViewController = navigationController
+        self.window?.backgroundColor = .white
+    }
 }
 

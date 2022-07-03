@@ -2,15 +2,11 @@
 //  FavoritPosterCollectionViewCell.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 03.07.2022.
+//  Created by Александр Логинов on 03.07.2022.
 //
 
 import UIKit
 import RealmSwift
-
-protocol AlertShowCollectionViewCellProtocol {
-    func alefrtShow(id: ObjectId)
-}
 
 protocol FavoritPosterCollectionViewCellProtocol {
     static var identifairCell: String {get set}
@@ -51,7 +47,6 @@ class FavoritPosterCollectionViewCell: UICollectionViewCell, FavoritPosterCollec
     
     private func setCell() {
         contentView.addSubviews([photoImageView, deletFavoriteButton])
-        //photoImageView.addSubviews([deletFavoriteButton])
     }
     
     private func cofigurationConstraints() {
@@ -76,7 +71,6 @@ class FavoritPosterCollectionViewCell: UICollectionViewCell, FavoritPosterCollec
     }
     
     @objc private func deletFavoriteButtonAction() {
-        print("Tappppppppp")
         self.aletrDelegate?.alefrtShow(id: model!._id)
     }
 }

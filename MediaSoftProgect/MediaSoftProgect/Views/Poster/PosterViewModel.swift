@@ -2,7 +2,7 @@
 //  PosterViewModel.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import Foundation
@@ -32,7 +32,9 @@ final class PosterViewModel: PosterViewModelProtocol {
     
     func searchPoster(name: String, completion: @escaping () -> ()) {
         provider.request(.searchPoster(name: name)) { result in
+            
             self.resultRequestGfycat.removeAll()
+            
             switch result {
             case .success(let response):
                 do {
@@ -41,9 +43,11 @@ final class PosterViewModel: PosterViewModelProtocol {
                     guard let results = results else {return}
 
                     self.resultRequestGfycat = results
+                    
                     completion()
+                    
                 } catch {
-                    print("ERROR")
+                    print(error)
                 }
 
             case .failure(let error):
@@ -59,14 +63,15 @@ final class PosterViewModel: PosterViewModelProtocol {
                 
             case .success(let response):
                 do {
-                    print(try response.mapJSON())
                     let results = try response.map(GfycatModel.self).gfycats
+                    
                     guard let results = results else {return}
 
                     self.resultRequestGfycat = results
+                    
                     completion()
                 } catch {
-                    print("ХЗ что за ошибка")
+                    print(error)
                 }
             case .failure(let error):
                 print(error)

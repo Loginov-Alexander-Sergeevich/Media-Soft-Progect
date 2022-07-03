@@ -2,23 +2,26 @@
 //  FavoritePosterViewController.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import UIKit
 import RealmSwift
 
+protocol AlertShowCollectionViewCellProtocol {
+    func alefrtShow(id: ObjectId)
+}
+
 class FavoritePosterViewController: UIViewController {
 
     var viewModel: FavoritPosterViewModelProtocol!
-    var favoritePhotosDataSource: UICollectionViewDiffableDataSource<Section, RealmGfycatModel>?
+    var favoritePosterDataSource: UICollectionViewDiffableDataSource<Section, RealmGfycatModel>?
     
     private lazy var favoritePhotosCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .clear
         collectionView.register(FavoritPosterCollectionViewCell.self, forCellWithReuseIdentifier: FavoritPosterCollectionViewCell.identifairCell)
-        //collectionView.delegate = self
         return  collectionView
     }()
     
@@ -72,7 +75,7 @@ class FavoritePosterViewController: UIViewController {
     }
     
     private func createDataSource() {
-        favoritePhotosDataSource = UICollectionViewDiffableDataSource<Section, RealmGfycatModel>(collectionView: favoritePhotosCollectionView){ collectionView, indexPath, itemIdentifier in
+        favoritePosterDataSource = UICollectionViewDiffableDataSource<Section, RealmGfycatModel>(collectionView: favoritePhotosCollectionView){ collectionView, indexPath, itemIdentifier in
             let section = Section(rawValue: indexPath.section)
             
             switch section {
@@ -86,7 +89,7 @@ class FavoritePosterViewController: UIViewController {
         
         self.activityIndicator.startAnimating()
         viewModel.timer?.invalidate()
-        viewModel.timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: false, block: { [weak self] _ in
+        viewModel.timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { [weak self] _ in
             
             var snapshot = NSDiffableDataSourceSnapshot<Section, RealmGfycatModel>()
             let items = RealmManadger.shared.itemsGfycat()
@@ -95,7 +98,7 @@ class FavoritePosterViewController: UIViewController {
                 snapshot.appendSections([section])
                 snapshot.appendItems(Array(items), toSection: section)
             }
-            self?.favoritePhotosDataSource?.apply(snapshot)
+            self?.favoritePosterDataSource?.apply(snapshot)
             self?.activityIndicator.stopAnimating()
         })
         
@@ -143,6 +146,9 @@ extension FavoritePosterViewController: AlertShowCollectionViewCellProtocol {
         let delet = UIAlertAction(title: "Удалить", style: .default) { [weak self] _ in
 
             self?.viewModel?.deletDataPhoto(id: id)
+            
+            self?.createDataSource()
+            self?.reloadData()
         }
         
         aletr.addAction(cancel)

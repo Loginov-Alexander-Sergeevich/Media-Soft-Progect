@@ -2,7 +2,7 @@
 //  PosterTableViewCell.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import Foundation
@@ -107,8 +107,6 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
         
         addFavoriteButton.tag = cellIndex
         
-        //accessoryView = addFavoriteButton
-        
         self.titlePosterLabel.text = model.title
         
         
@@ -117,7 +115,6 @@ final class PosterTableViewCell: UITableViewCell, PosterTableViewCellProtocol {
     }
     
     @objc private func addFavoriteButtonAction(sender: UIButton) {
-        print("Taped")
         guard let model = model else {
             return
         }

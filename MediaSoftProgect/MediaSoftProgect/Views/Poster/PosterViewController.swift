@@ -2,10 +2,11 @@
 //  PosterViewController.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import UIKit
+import Firebase
 
 protocol AlertShowProtocol {
     func alertShow(model: RealmGfycatModel)
@@ -65,7 +66,7 @@ class PosterViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationItem.title = viewModel.title
         navigationItem.searchController = searchContriller
-        
+        exit()
   
     }
     
@@ -78,6 +79,12 @@ class PosterViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+    
+    func exit() {
+        let rightButton: UIBarButtonItem = UIBarButtonItem(title: "Выйти", style: UIBarButtonItem.Style.done, target: self, action: #selector(exitAction))
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
     
     private func configureCell<T: PosterTableViewCellProtocol>(_ CellId: T.Type, with resultsRequest: Gfycats, for indexPath: IndexPath) -> T {
         
@@ -111,6 +118,17 @@ class PosterViewController: UIViewController {
         }
         
         posterDataSource.apply(snapshot)
+    }
+    
+    @objc private func exitAction() {
+        do {
+            try Auth.auth().signOut()
+            let loginViewController = LoginViewController()
+            loginViewController.modalPresentationStyle = .custom
+            self.navigationController?.present(loginViewController, animated: true)
+        } catch {
+            print(error)
+        }
     }
 }
 

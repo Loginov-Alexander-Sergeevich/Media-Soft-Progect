@@ -2,7 +2,7 @@
 //  TabBarViewController.swift
 //  MediaSoftProgect
 //
-//  Created by Александр Александров on 01.07.2022.
+//  Created by Александр Логинов on 01.07.2022.
 //
 
 import UIKit
@@ -27,8 +27,8 @@ class TabBarViewController: UITabBarController {
         favoritePhotosImage.withTintColor(.red)
         
         viewControllers = [
-            generateNavigatonController(posterViewController, "Поиск фотографий", searchPhotosImage),
-            generateNavigatonController(favoritePosterViewController, "Сохраненные фото", favoritePhotosImage)
+            generateNavigatonController(posterViewController, "Posters", searchPhotosImage),
+            generateNavigatonController(favoritePosterViewController, "Favourite posters", favoritePhotosImage)
         ]
         
         setTabBar()
