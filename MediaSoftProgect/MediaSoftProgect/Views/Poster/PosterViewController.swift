@@ -150,6 +150,21 @@ extension PosterViewController: UISearchBarDelegate {
 }
 
 extension PosterViewController: AlertShowProtocol {
+    
+    func alertSuccess() {
+        let alert = UIAlertController(title: """
+                                     Вы успешно добавили Постер
+                                     """,
+                                      message: nil, preferredStyle: .alert)
+        let ок = UIAlertAction(title: "Ок", style: .destructive, handler: nil)
+
+        alert.addAction(ок)
+        
+        alert.modalPresentationStyle = .automatic
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func alertShow(model: RealmGfycatModel) {
         let alert = UIAlertController(title: """
                                      Добавить в "Любимые фото"
@@ -159,7 +174,7 @@ extension PosterViewController: AlertShowProtocol {
         let add = UIAlertAction(title: "Добавить", style: .default) { [weak self] _ in
             
             self?.viewModel?.saveDataInRealmBD(model: model)
-            
+            self?.alertSuccess()
         }
         
         alert.addAction(cancel)
